@@ -1,0 +1,7 @@
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))r(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const c of o.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&r(c)}).observe(document,{childList:!0,subtree:!0});function s(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerPolicy&&(o.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?o.credentials="include":e.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function r(e){if(e.ep)return;e.ep=!0;const o=s(e);fetch(e.href,o)}})();const l="https://pokeapi.co/api/v2/pokemon/",i=async n=>{const t=`${l}${n}`;return(await fetch(t)).json()},m=386,d=()=>Math.round(Math.random()*m),u=n=>{document.getElementById("pkmn").innerHTML=`
+    <img 
+      src="${n.sprites.other["official-artwork"].front_default}" 
+      alt="A pokemon"
+      class="m-auto"
+    >
+  `};let a="";document.addEventListener("DOMContentLoaded",async()=>{const n=d(),t=await i(n);a=t.name,u(t)});document.getElementById("form").addEventListener("submit",async n=>{n.preventDefault();const t=document.getElementById("userInput");if(t.value.toLocaleLowerCase().trim()!==a)alert("incorrecto!");else{alert("muy bien!");const s=d(),r=await i(s);a=r.name,u(r)}t.value=t.defaultValue});
