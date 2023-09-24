@@ -1,4 +1,4 @@
-const MAX_ID = 1281;
+const MAX_ID = 386;
 
 export const getRandomId = () => {
   const randomId = Math.round( Math.random() * MAX_ID );
