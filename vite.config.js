@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/11.1-taller-apis-JAP/',
+  base: '/taller11.1-apis-JAP/',
 });
